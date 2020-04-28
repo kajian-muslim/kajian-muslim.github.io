@@ -41,18 +41,18 @@
         
         window.onload = playSong;   // it will call the function playSong when window is load
         
-        function playSong(){
+//         function playSong(){
             
-            song.src = "https://freeuk15.listen2myradio.com/live.mp3?typeportmount=ice_23639_stream_838891635";  //set the source of 0th song 
+//              //set the source of 0th song 
             
-            // songTitle.textContent = songs[currentSong]; // set the title of song
+//             // songTitle.textContent = songs[currentSong]; // set the title of song
             
-            song.play();    // play the song
+//             song.play();    // play the song
             
-        }
+//         }
         
         function playOrPauseSong(){
-            // song.src = "http://freeuk15.listen2myradio.com/chat/frame.php?frameid=3159004";
+             song.src = "https://freeuk15.listen2myradio.com/live.mp3?typeportmount=ice_23639_stream_838891635";
             if(song.paused){
                 $("#play img").attr("src","Pause.png");
                 song.play();                
