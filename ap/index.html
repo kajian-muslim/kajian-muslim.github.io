@@ -42,13 +42,13 @@
         window.onload = playSong;   // it will call the function playSong when window is load
         
         function playSong(){
-            
+            $("#play img").attr("src","Pause.png");
             song.src = "https://freeuk15.listen2myradio.com/live.mp3?typeportmount=ice_23639_stream_838891635";  //set the source of 0th song 
             
             // songTitle.textContent = songs[currentSong]; // set the title of song
             
             song.play();    // play the song
-            $("#play img").attr("src","Pause.png");
+            
         }
         
         function playOrPauseSong(){
