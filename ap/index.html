@@ -5,9 +5,9 @@
     </head>
     <script type="text/javascript"> 
        $(document).ready(function(){            
-           var song = new Audio();           
-           function playOrPauseSong(){
-               song.src = "https://freeuk15.listen2myradio.com/live.mp3?typeportmount=ice_23639_stream_838891635";
+           var song = new Audio();
+           song.src = "https://freeuk15.listen2myradio.com/live.mp3?typeportmount=ice_23639_stream_838891635";
+           function PlayPause(){              
                 if(song.paused){                
                     song.play(); 
                     $("#play img").attr("src","Pause.png");
@@ -35,7 +35,7 @@
                 <!-- <div id="songTitle">Demo</div> -->
                 <div id="buttons">
                     <button id="pre" onclick="pre()"><img src="Pre.png" height="90%" width="90%"/></button>
-                    <button id="play" onclick="playOrPauseSong()"><img src="Play.png"/></button>
+                    <button id="play" onclick="PlayPause()"><img src="Play.png"/></button>
                     <button id="next" onclick="next()"><img src="Next.png" height="90%" width="90%"/></button>
                 </div>
                 <!-- <div id="">Demo</div> -->
