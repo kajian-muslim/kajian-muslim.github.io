@@ -48,6 +48,7 @@
             // songTitle.textContent = songs[currentSong]; // set the title of song
             
             song.play();    // play the song
+            $("#play img").attr("src","Pause.png");
         }
         
         function playOrPauseSong(){
@@ -64,12 +65,12 @@
             }
         }
         
-        song.addEventListener('timeupdate',function(){ 
+//         song.addEventListener('timeupdate',function(){ 
             
-            var position = song.currentTime / song.duration;
+//             var position = song.currentTime / song.duration;
             
-            fillBar.style.width = position * 100 +'%';
-        });
+//             fillBar.style.width = position * 100 +'%';
+//         });
 
         
         
