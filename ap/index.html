@@ -36,10 +36,10 @@
         
            var song = new Audio();
            song.src = "https://freeuk15.listen2myradio.com/live.mp3?typeportmount=ice_23639_stream_838891635";
-           song.play();
+           
            function PlayPause(){              
                 if(song.paused){                
-                   
+                    song.play();
                     $("#play img").attr("src","Pause.png");
                     $("#image img").attr("src","https://i.gifer.com/fxvT.gif");
                 }
