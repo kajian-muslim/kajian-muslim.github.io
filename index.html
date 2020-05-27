@@ -15,7 +15,7 @@
         <div id="main">
             
             <div id="image">
-                <img src="https://radio-riyadhussholihin.my.id/ap/Play.gif"/>
+                <img src="https://radio-riyadhussholihin.my.id/ap/masjid.jpg"/>
             </div>
             <div id="player">
                 <audio id="audio" class="my_audio" controls preload="none">
@@ -44,12 +44,12 @@
                 console.log(task); 
                 $(".my_audio").trigger('play');
                 $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Pause.png");
-                $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.gif"); 
+//                 $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.gif"); 
                 status=0;               
             }else {
                 $(".my_audio").trigger('pause');
                 $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.png");
-                $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/pause.gif");
+//                 $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/pause.gif");
                 status=1; 
             }
             
