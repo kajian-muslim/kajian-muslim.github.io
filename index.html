@@ -5,7 +5,7 @@
         <script src="https://radio-riyadhussholihin.my.id/ap/content-script.js"></script>
     </head>
  
-    <body>
+    <body>       
         <div id="bg">
             <div id="blackLayer"></div>
              
@@ -13,14 +13,19 @@
         </div>
        
         <div id="main">
+            
             <div id="image">
-                <img src="https://i.gifer.com/LCPT.gif"/>
+                <img src="https://radio-riyadhussholihin.my.id/ap/pause.gif"/>
             </div>
             <div id="player">
-                <!-- <div id="songTitle">Demo</div> -->
+                <audio id="audio" class="my_audio" controls preload="none">
+                    <source src="http://freeuk12.listen2myradio.com:16271/stream" type="audio/mpeg">
+                    <source src="http://freeuk12.listen2myradio.com:16271/stream" type="audio/ogg">
+                </audio>
+               
                 <div id="buttons">
                     <button id="pre" onclick="pre()"><img src="https://radio-riyadhussholihin.my.id/ap/Pre.png" height="90%" width="90%"/></button>
-                    <button id="play" onclick="PlayPause()"><img src="https://radio-riyadhussholihin.my.id/ap/Play.png"/></button>
+                    <button id="play" onclick="PlayPause(1)"><img src="https://radio-riyadhussholihin.my.id/ap/Play.png"/></button>
                     <button id="next" onclick="next()"><img src="https://radio-riyadhussholihin.my.id/ap/Next.png" height="90%" width="90%"/></button>
                 </div>                                     
             </div>
@@ -30,30 +35,28 @@
     
     </body>
     <script type="text/javascript"> 
-    
-  
         
-           var song = new Audio();
-          
-          
-           function PlayPause(){              
-                if(song.paused){                
-                    song.play();
-                    $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Pause.png");
-                    $("#image img").attr("src","https://i.gifer.com/fxvT.gif");
-                }
-                else{
-                    song.pause();
-                    $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.png");
-                    $("#image img").attr("src","https://i.gifer.com/LCPT.gif");
-                }
-            }   
-         window.onload = function() {
-              //song.src = "http://freeuk14.listen2myradio.com:27755/stream"; 
-              song.src = "http://freeuk12.listen2myradio.com:16271/stream"; 
-              song.play();
-             console.log(song);
-           }
+        $(".my_audio").trigger('load');
+        document.getElementById('audio').style.display = "none";
+        var status='1';
+        function PlayPause(task) { 
+                if(task == status){
+                console.log(task); 
+                $(".my_audio").trigger('play');
+                $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Pause.png");
+                $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.gif"); 
+                status=0;               
+            }else {
+                $(".my_audio").trigger('pause');
+                $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.png");
+                $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/pause.gif");
+                status=1; 
+            }
+            
+        }
+                 
+           
+        
     </script> 
     
     
