@@ -4,17 +4,13 @@
         <link href="https://radio-riyadhussholihin.my.id/ap/Main.css" rel="stylesheet"/>
         <script src="https://radio-riyadhussholihin.my.id/ap/jquery-1.10.2.min.js"></script>
         <script src="https://radio-riyadhussholihin.my.id/ap/content-script.js"></script>
-    </head>
- 
+    </head> 
     <body>       
         <div id="bg">
-            <div id="blackLayer"></div>
-             
+            <div id="blackLayer"></div>             
             <img src="https://www.cognidox.com/hs-fs/hubfs/shutterstock_1030776988.png?width=750&name=shutterstock_1030776988.png"/>
-        </div>
-       
-        <div id="main">
-            
+        </div>      
+        <div id="main">            
             <div id="image">
                 <img src="https://radio-riyadhussholihin.my.id/ap/masjid1.jpg"/>
             </div>
@@ -22,8 +18,7 @@
                 <audio id="audio" class="my_audio" controls preload="none">
                     <source src="http://pondokriyadhussholihin-32472.portmap.io:32472/stream" type="audio/mpeg">
                     <source src="http://pondokriyadhussholihin-32472.portmap.io:32472/stream" type="audio/ogg">
-                </audio>
-               
+                </audio>               
                 <div id="buttons">
                     <button id="pre" onclick="pre()"><img src="https://radio-riyadhussholihin.my.id/ap/Pre.png" height="90%" width="90%"/></button>
                     <button id="play" onclick="PlayPause(1)"><img src="https://radio-riyadhussholihin.my.id/ap/Play.png"/></button>
@@ -31,12 +26,9 @@
                 </div>                                     
             </div>
             <div class="kajian"><h1>Kajian Muslim</h1></div>
-        </div>
-        
-    
+        </div>     
     </body>
-    <script type="text/javascript"> 
-        
+    <script type="text/javascript">        
         $(".my_audio").trigger('load');
         document.getElementById('audio').style.display = "none";
         var status='1';
@@ -45,20 +37,12 @@
                 console.log(task); 
                 $(".my_audio").trigger('play');
                 $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Pause.png");
-//                 $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.gif"); 
                 status=0;               
             }else {
                 $(".my_audio").trigger('pause');
                 $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.png");
-//                 $("#image img").attr("src","https://radio-riyadhussholihin.my.id/ap/pause.gif");
                 status=1; 
-            }
-            
-        }
-                 
-           
-        
-    </script> 
-    
-    
+            }            
+        }             
+    </script>   
 </html>
