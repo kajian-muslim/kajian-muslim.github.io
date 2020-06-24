@@ -10,18 +10,15 @@
         <div id='container'> 
             <div id="box-info">
                 <marquee><h1>Radio Riyadhussholihin Pangkep</h1> </marquee></br>
-<!--             <h1 id="status">Recorded</h1> -->
-            </div> 
-            
-               
-               
-                      
+            <h1 id="status">CHANEL 1</h1>
+            </div>
+
             <img  id="img" src="https://radio-riyadhussholihin.my.id/ap/masjid1.jpg" >
                                       
             <div id="buttons">
-                <button id="pre" onclick="pre()"><img src="https://radio-riyadhussholihin.my.id/ap/Pre.png" ></button>
+                <button id="pre" onclick="chanel(1)"><img src="https://radio-riyadhussholihin.my.id/ap/Pre.png" ></button>
                 <button id="play" onclick="PlayPause(1)"><img src="https://radio-riyadhussholihin.my.id/ap/Play.png"/></button>
-                <button id="next" onclick="next()"><img src="https://radio-riyadhussholihin.my.id/ap/Next.png" ></button>
+                <button id="next" onclick="chanel(2)"><img src="https://radio-riyadhussholihin.my.id/ap/Next.png" ></button>
             </div>                                
              
         </div>
@@ -35,6 +32,7 @@
         document.getElementById('audio').style.display = "none";
         var status=1;
        
+        
         function PlayPause(task) { 
                 if(task == status){
                 console.log(task); 
@@ -50,6 +48,29 @@
             }
             
         }
+
+        function chanel(ch){
+            if  (ch == 2){
+                document.getElementsByTagName("source")[0].src = "http://freeuk22.listen2myradio.com:17057/stream";
+                document.getElementsByTagName("source")[1].src = "http://freeuk22.listen2myradio.com:17057/stream";
+                $(".my_audio").trigger('load');
+                $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.png"); 
+                document.getElementById("status").innerText = "CHANEL 2";
+                console.log(document.getElementsByTagName("source")[0]);
+                console.log(document.getElementsByTagName("source")[1]);                        
+            } 
+            if (ch == 1){
+                document.getElementsByTagName("source")[0].src = "http://pondokriyadhussholihin-32472.portmap.io:32472/stream";
+                document.getElementsByTagName("source")[1].src = "http://pondokriyadhussholihin-32472.portmap.io:32472/stream";
+                $(".my_audio").trigger('load');
+                $("#play img").attr("src","https://radio-riyadhussholihin.my.id/ap/Play.png"); 
+                document.getElementById("status").innerText = "CHANEL 1";
+                console.log(document.getElementsByTagName("source")[0]);
+                console.log(document.getElementsByTagName("source")[1]);  
+            }
+                
+        }
+        
                  
            
         
