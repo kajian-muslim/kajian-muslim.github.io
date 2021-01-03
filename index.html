@@ -74,15 +74,19 @@
                 
         }
         
-    var xhttp = new XMLHttpRequest();  
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("status_server").innerHTML =
-        this.responseText;
-        }
-    };
-    xhttp.open("GET", "http://pondokriyadhussholihin-31468.portmap.host:31468/radio/get.php?status=", true);
-    xhttp.send();
+   function doRefresh(){
+        var xhttp = new XMLHttpRequest();  
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("status_server").innerHTML =
+                this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://pondokriyadhussholihin-31468.portmap.host:31468/radio/get.php?status=", true);
+        xhttp.send();
+       
+    } 
+    setInterval(function(){doRefresh()}, 10000); 
                 
             
         
