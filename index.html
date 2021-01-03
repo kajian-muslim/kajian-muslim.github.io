@@ -8,9 +8,10 @@
  
     <body>          
         <div id='container'> 
+        
             <div id="box-info">
-                <marquee><h1>Radio Riyadhussholihin </h1> </marquee></br>
-            <h1 id="status">CHANEL 1</h1>
+                <div id="status_server"><h1>Loading..</h1></div>
+            <h1 id="status">Radio Riyadhussholihin</h1>
             </div>
 
             <img  id="img" src="https://radio-riyadhussholihin.my.id/ap/masjid1.jpg" >
@@ -73,8 +74,17 @@
                 
         }
         
-                 
-           
+    var xhttp = new XMLHttpRequest();  
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("status_server").innerHTML =
+        this.responseText;
+        }
+    };
+    xhttp.open("GET", "http://pondokriyadhussholihin-31468.portmap.host:31468/radio/get.php?status=", true);
+    xhttp.send();
+                
+            
         
     </script> 
     
