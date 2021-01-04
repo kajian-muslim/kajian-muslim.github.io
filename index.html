@@ -89,7 +89,10 @@
                     document.getElementById("current").innerHTML = data[1];
                     if ((status != data[0])&&(status == "OFFLINE")){
                         location.reload();
-                    }            
+                    }
+                    if (data[0] == "OFFLINE" ) {
+                        chanel(1);
+                    }              
             }
         };
         xhttp.open("GET", "http://pondokriyadhussholihin-31468.portmap.host:31468/radio/get.php?status=", true);
