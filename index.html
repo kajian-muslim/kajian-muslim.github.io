@@ -11,6 +11,7 @@
         
             <div id="box-info">
                 <div><h1 id="status_server">Loading..</h1></div>
+                <div><h2 id="rekaman"></h2></div>
                 <div><marquee><h2 id="current"></h2></marquee></div>
             <h1 id="status">Radio Riyadhussholihin</h1>
             </div>
@@ -82,18 +83,23 @@
             if (this.readyState == 4 && this.status == 200) {               
                     var data = JSON.parse(this.responseText);
                     console.log(data[0]);
-                    document.getElementById("status_server").innerHTML = data[0];
+                    
                     if (data[1] == undefined){
                         data[1] = "";
+                        data[2] = "";
                     }
-                    document.getElementById("current").innerHTML = data[1];
+                    
                     if ((status != data[0])&&(status == "OFFLINE")){
                         location.reload();
                         //$(".my_audio").trigger('load');
                     }
+                
                     if (data[0] == "OFFLINE" ) {
                         chanel(1);
-                    }              
+                    }  
+                    document.getElementById("status_server").innerHTML = data[0];
+                    document.getElementById("current").innerHTML = data[1];
+                    document.getElementById("rekaman").innerHTML = data[2];
             }
         };
         xhttp.open("GET", "http://pondokriyadhussholihin-31468.portmap.host:31468/radio/get.php?status=", true);
