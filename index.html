@@ -76,37 +76,37 @@
                 
         }
    
-//     function doRefresh(){
-//         var xhttp = new XMLHttpRequest();  
-//         xhttp.onreadystatechange = function() {
-//             var status = document.getElementById("status_server").innerHTML;
-//             if (this.readyState == 4 && this.status == 200) {               
-//                     var data = JSON.parse(this.responseText);
-//                     console.log(data[0]);
+    function doRefresh(){
+        var xhttp = new XMLHttpRequest();  
+        xhttp.onreadystatechange = function() {
+            var status = document.getElementById("status_server").innerHTML;
+            if (this.readyState == 4 && this.status == 200) {               
+                    var data = JSON.parse(this.responseText);
+                    console.log(data[0]);
                     
-//                     if (data[1] == undefined){
-//                         data[1] = "";
-//                         data[2] = "";
-//                     }
+                    if (data[1] == undefined){
+                        data[1] = "";
+                        data[2] = "";
+                    }
                     
-//                     if ((status != data[0])&&(status == "OFFLINE")){
-//                         location.reload();
-//                         //$(".my_audio").trigger('load');
-//                     }
+                    if ((status != data[0])&&(status == "OFFLINE")){
+                        location.reload();
+                        //$(".my_audio").trigger('load');
+                    }
                 
-//                     if (data[0] == "OFFLINE" ) {
-//                         chanel(1);
-//                     }  
-//                     document.getElementById("status_server").innerHTML = data[0];
-//                     document.getElementById("current").innerHTML = data[1];
-//                     document.getElementById("rekaman").innerHTML = data[2];
-//             }
-//         };
-//         xhttp.open("GET", "https://getradio.000webhostapp.com/get.php?status=", true);
-//         xhttp.send();
+                    if (data[0] == "OFFLINE" ) {
+                        chanel(1);
+                    }  
+                    document.getElementById("status_server").innerHTML = data[0];
+                    document.getElementById("current").innerHTML = data[1];
+                    document.getElementById("rekaman").innerHTML = data[2];
+            }
+        };
+        xhttp.open("GET", "https://getradio.000webhostapp.com/index.php?status=", true);
+        xhttp.send();
        
-//     } 
-//     setInterval(function(){doRefresh()}, 5000);   
+    } 
+    setInterval(function(){doRefresh()}, 5000);   
     
                 
             
