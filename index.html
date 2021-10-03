@@ -64,8 +64,11 @@
                   }
                     
                   if ((status != data[0])&&(status == "OFFLINE")){
-                      location.reload();
-                      vid.load() 
+                      location.reload();                       
+                  }
+                  
+                  if (data[0] == "OFFLINE"){
+                    vid.load()
                   }
                 
                   document.getElementById("status_server").innerHTML = data[0];
