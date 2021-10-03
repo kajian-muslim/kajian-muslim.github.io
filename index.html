@@ -57,7 +57,7 @@
           fetch('https://getradio.000webhostapp.com/index.php?status=')
             .then(function(response) {
                 response.json().then(function(data) {
-                  console.log(data);
+                  
                   if (data[1] == undefined){
                       data[1] = "";
                       data[2] = "";
