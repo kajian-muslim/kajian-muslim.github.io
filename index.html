@@ -65,6 +65,7 @@
                     
                   if ((status != data[0])&&(status == "OFFLINE")){
                       location.reload();
+                      vid.load() 
                   }
                 
                   document.getElementById("status_server").innerHTML = data[0];
