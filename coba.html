@@ -15,11 +15,15 @@
     fetch('https://cors-anywhere.herokuapp.com/http://freeuk29.listen2myradio.com:8143').then(res => res.text()).
     then( 
       data => {
-        desc = str(data,2)
-        judul = str(data,8)
-        document.querySelector("#bodi").innerHTML = `<br> Description : ${desc}</br> <br> judul : ${judul} </br> ` 
-        console.log(str(data,2))
-        console.log(str(data,8))
+        arr = data.split('streamdata').length;
+        console.log(arr)
+        if (arr > 1){
+          desc = str(data,2)
+          judul = str(data,8)
+          document.querySelector("#bodi").innerHTML = `<br> Description : ${desc}</br> <br> judul : ${judul} </br> ` 
+          console.log(str(data,2))
+          console.log(str(data,8))
+        }        
       })
   </script>
   

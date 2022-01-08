@@ -29,6 +29,18 @@
     </div> 
   </div>
   <script>
+    function str(data,index){
+      arr = data.split('streamdata')[index];
+      return arr.split('>')[1].split('<')[0]; 
+    }
+    function status(set){
+      let status = document.querySelector("#status_server").innerHTML;
+      if ((status != set)&&(status == "OFFLINE")){
+        location.reload();                       
+      } else {
+        document.querySelector("#status_server").innerHTML = set
+      }
+    }
     document.addEventListener('DOMContentLoaded', function(event) {
         unMute = document.querySelector("#content")
         unMute.style.display = 'none'
@@ -52,35 +64,28 @@
             })
         }, false)
 
-        function doRefresh(){
-          let status = document.querySelector("#status_server").innerHTML;
-          fetch('https://getradio.000webhostapp.com/index.php?status=')
-            .then(function(response) {
-                response.json().then(function(data) {
-                  
-                  if (data[1] == undefined){
-                      data[1] = "";
-                      data[2] = "";
-                  }
-                    
-                  if ((status != data[0])&&(status == "OFFLINE")){
-                      location.reload();                       
-                  }
-                  
-                  if (data[0] == "OFFLINE"){
-                    unMute.style.display = 'none'
-                    vid.muted = true
-                  }
-                
-                  document.getElementById("status_server").innerHTML = data[0];
-                  document.getElementById("current").innerHTML = data[1];
-                  document.getElementById("rekaman").innerHTML = data[2];
-                });
-              }
-            )
-            .catch(function(err) {
-              document.getElementById("status_server").innerHTML = "Not Connect";
-            });
+        function doRefresh(){          
+          fetch('https://cors-anywhere.herokuapp.com/http://freeuk29.listen2myradio.com:8143').then(res => res.text())
+          .then( 
+            data => {
+              arr = data.split('streamdata').length;
+              // console.log(arr)
+              if (arr > 1){
+                status('ONLINE');
+                desc = str(data,2)
+                judul = str(data,8)
+                document.getElementById("current").innerHTML = judul
+                document.getElementById("rekaman").innerHTML = desc
+                // console.log(desc)
+                // console.log(judul)
+              }else{
+                document.getElementById("status_server").innerHTML = "OFFLINE"
+                document.getElementById("current").innerHTML = ""
+                document.getElementById("rekaman").innerHTML = ""
+                unMute.style.display = 'none'
+                vid.muted = true
+              }        
+            })
         }
         
       setInterval(function(){doRefresh()}, 5000);  
