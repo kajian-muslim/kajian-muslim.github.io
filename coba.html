@@ -1,97 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Taklim</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="mod_1.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<body>
-<script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
-  <div class="neon">    
-      <h1 id="status_server">Loading..</h1>
-      <h2 id="rekaman"></h2>
-      <marquee><h2 id="current"></h2></marquee>
-<!--  <h1 id="status">Radio Riyadhussholihin</h1> -->
-    
-  </div>
-  <div class="container">
-    
-    <div class="card" id="content">
-       <div class="face face1 box-radius" >
-         <div class="content" >
-            <i class="fas fa-power-off" id="on"></i>
-         </div>
-       </div>
-        <video width="200px" autoplay="autoplay" controls="controls" id="vid" muted>
-            <source type="video/mp4" src="http://78.129.229.120:8143/stream"></source>
-            <source type="video/ogg" src="http://78.129.229.120:8143/stream"></source>
-        </video>  
-    </div> 
-  </div>
+<body id="bodi">
   <script>
-    document.addEventListener('DOMContentLoaded', function(event) {
-        unMute = document.querySelector("#content")
-        unMute.style.display = 'none'
-        vid.style.display = 'none'
-        vid = document.querySelector("#vid")
-        vid.addEventListener('loadeddata', function(event) {            
-            unMute.style.display = "block"            
-            unMute.addEventListener('click',function(){
-                if (vid.muted){
-                    vid.play()                    
-                    vid.muted = false                    
-                    document.querySelector('.face1').setAttribute('id','power_on')
-                    document.querySelector('#on').style.color = "white"
-                    
-                } else {
-                    vid.muted = true
-                    document.querySelector('.face1').removeAttribute('id','power_on')
-                    document.querySelector('#on').style.color = "black"
-                   
-                }
-            })
-        }, false)
-
-        function doRefresh(){
-          let status = document.querySelector("#status_server").innerHTML;
-          fetch('https://getradio.000webhostapp.com/index.php?status=')
-            .then(function(response) {
-                response.json().then(function(data) {
-                  
-                  if (data[1] == undefined){
-                      data[1] = "";
-                      data[2] = "";
-                  }
-                    
-                  if ((status != data[0])&&(status == "OFFLINE")){
-                      location.reload();                       
-                  }
-                  
-                  if (data[0] == "OFFLINE"){
-                    unMute.style.display = 'none'
-                    vid.muted = true
-                  }
-                
-                  document.getElementById("status_server").innerHTML = data[0];
-                  document.getElementById("current").innerHTML = data[1];
-                  document.getElementById("rekaman").innerHTML = data[2];
-                });
-              }
-            )
-            .catch(function(err) {
-              document.getElementById("status_server").innerHTML = "Not Connect";
-            });
-        }
-        
-      setInterval(function(){doRefresh()}, 5000);  
-    })
-      
-     
-     
-
-    
-      
-     
+    fetch('http://cors-anywhere.herokuapp.com/http://freeuk29.listen2myradio.com:8143').then(res => res.text()).then(data => document.querySelector('#bodi').innerHTML = data)
   </script>
   
 </body>
