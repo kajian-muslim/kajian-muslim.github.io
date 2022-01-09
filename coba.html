@@ -7,24 +7,34 @@
   <title>Document</title>
 </head>
 <body id="bodi">
+  <iframe id="myFrame" src="http://freeuk29.listen2myradio.com:8143"></iframe>
   <script>
-    function str(data,index){
-      arr = data.split('streamdata')[index];
-      return arr.split('>')[1].split('<')[0]; 
-    }
-    fetch('https://cors-anywhere.herokuapp.com/http://freeuk29.listen2myradio.com:8143').then(res => res.text()).
-    then( 
-      data => {
-        arr = data.split('streamdata').length;
-        console.log(arr)
-        if (arr > 1){
-          desc = str(data,2)
-          judul = str(data,8)
-          document.querySelector("#bodi").innerHTML = `<br> Description : ${desc}</br> <br> judul : ${judul} </br> ` 
-          console.log(str(data,2))
-          console.log(str(data,8))
-        }        
-      })
+  
+  window.addEventListener('load', (event) => {
+    var iframe = document.getElementById("myFrame");
+
+    fetch('').then().then()
+
+
+});
+
+    // function str(data,index){
+    //   arr = data.split('streamdata')[index];
+    //   return arr.split('>')[1].split('<')[0]; 
+    // }
+    // fetch('https://cors-anywhere.herokuapp.com/http://freeuk29.listen2myradio.com:8143').then(res => res.text()).
+    // then( 
+    //   data => {
+    //     arr = data.split('streamdata').length;
+    //     console.log(arr)
+    //     if (arr > 1){
+    //       desc = str(data,2)
+    //       judul = str(data,8)
+    //       document.querySelector("#bodi").innerHTML = `<br> Description : ${desc}</br> <br> judul : ${judul} </br> ` 
+    //       console.log(str(data,2))
+    //       console.log(str(data,8))
+    //     }        
+    //   })
   </script>
   
 </body>

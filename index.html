@@ -65,11 +65,11 @@
         }, false)
 
         function doRefresh(){          
-          fetch('https://cors-anywhere.herokuapp.com/http://freeuk29.listen2myradio.com:8143').then(res => res.text())
+          fetch(`https://getradio.000webhostapp.com/index.php?url=http://freeuk29.listen2myradio.com:8143`).then(res => res.text())
           .then( 
             data => {
               arr = data.split('streamdata').length;
-              // console.log(arr)
+              //  console.log(data)
               if (arr > 1){
                 status('ONLINE');
                 desc = str(data,2)
@@ -78,7 +78,8 @@
                 document.getElementById("rekaman").innerHTML = desc
                 // console.log(desc)
                 // console.log(judul)
-              }else{
+              }
+              else{
                 document.getElementById("status_server").innerHTML = "OFFLINE"
                 document.getElementById("current").innerHTML = ""
                 document.getElementById("rekaman").innerHTML = ""
@@ -88,7 +89,9 @@
             })
         }
         
-      setInterval(function(){doRefresh()}, 5000);  
+      setInterval(function(){doRefresh()}, 3000); 
+                     
+
     })
       
      
