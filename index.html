@@ -66,7 +66,7 @@
         }, false)
 
         function doRefresh(){          
-          fetch(`https://getradio.000webhostapp.com/index.php?url=http://freeuk29.listen2myradio.com:8143`).then(res => res.text())
+          fetch(`http://getradio.000webhostapp.com/index.php?url=http://freeuk29.listen2myradio.com:8143`).then(res => res.text())
           .then( 
             data => {
               arr = data.split('streamdata').length;
