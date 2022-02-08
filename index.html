@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
-<title>Taklim</title>
-<!-- <script src="jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+<title>Card Effect</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="mod_1.css">
 </head>
 <body>
-<script src="95a02bd20d.js"></script>
+<script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
   <div class="neon">    
-      <h1 id="status_server">Loading..</h1>
+      <h1 id="status_server">Radio Riyadhussholihin</h1>
       <h2 id="rekaman"></h2>
-      <marquee><h2 id="current"></h2></marquee>
-<!--  <h1 id="status">Radio Riyadhussholihin</h1> -->
-    
+      <marquee><h2 id="current"><span class="cc_streaminfo" data-type="song" data-username="riyadhussholihin">Loading ...</span></h2></marquee>    
   </div>
   <div class="container">
     
@@ -24,24 +21,12 @@
          </div>
        </div>
         <video width="200px" autoplay="autoplay" controls="controls" id="vid" muted>
-            <source type="video/mp4" src="http://freeuk29.listen2myradio.com:8143/stream"></source>
-            <source type="video/ogg" src="http://freeuk29.listen2myradio.com:8143/stream"></source>
+            <source type="video/mp4" src="https://ssg.streamingmurah.com:8298/;"></source>
+            <source type="video/ogg" src="https://ssg.streamingmurah.com:8298/;"></source>
         </video>  
     </div> 
   </div>
   <script>
-    function str(data,index){
-      arr = data.split('streamdata')[index];
-      return arr.split('>')[1].split('<')[0]; 
-    }
-    function status(set){
-      let status = document.querySelector("#status_server").innerHTML;
-      if ((status != set)&&(status == "OFFLINE")){
-        location.reload();                       
-      } else {
-        document.querySelector("#status_server").innerHTML = set
-      }
-    }
     document.addEventListener('DOMContentLoaded', function(event) {
         unMute = document.querySelector("#content")
         unMute.style.display = 'none'
@@ -64,44 +49,9 @@
                 }
             })
         }, false)
-
-        function doRefresh(){          
-          fetch(`https://getradio.000webhostapp.com/index.php?url=http://freeuk29.listen2myradio.com:8143`).then(res => res.text())
-          .then( 
-            data => {
-              arr = data.split('streamdata').length;
-              //  console.log(data)
-              if (arr > 1){
-                status('ONLINE');
-                desc = str(data,2)
-                judul = str(data,9)
-                document.getElementById("current").innerHTML = judul
-                document.getElementById("rekaman").innerHTML = desc
-                // console.log(desc)
-                // console.log(judul)
-              }
-              else{
-                document.getElementById("status_server").innerHTML = "OFFLINE"
-                document.getElementById("current").innerHTML = ""
-                document.getElementById("rekaman").innerHTML = ""
-                unMute.style.display = 'none'
-                vid.muted = true
-              }        
-            })
-        }
         
-      setInterval(function(){doRefresh()}, 3000); 
-                     
-
-    })
-      
-     
-     
-
-    
-      
-     
+    })     
   </script>
-  
+ <script language="javascript" type="text/javascript" src="http://scg.streamingmurah.com:2199/system/streaminfo.js"></script>  
 </body>
 </html>
